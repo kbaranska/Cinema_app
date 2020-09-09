@@ -1,0 +1,63 @@
+.singleCard{
+border-radius: 10px;
+border:2px solid #61dafb;
+margin:5px;
+margin-bottom: 10px;
+border-color:#61dafb;
+}
+
+.poster_img{
+    width: 130px;
+}
+div, a{text-align: center;}
+.overview{
+  font-size: 15px;
+}
+.title{
+  font-size: 30px;
+}
+.hourButton{
+  border: solid 4px #61dafb;
+  background: none;
+color:#61dafb;
+margin:3px;
+}
+.days{
+  display:inline;
+  margin:3px;
+   font-size: 12px;
+}
+
+
+
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: "Font Awesome\ 5 Free";
+ }
+  
+  .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005";
+    color: blue;
+
+}
+  
+  .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+  }
+  
+  .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
+  }
+ ul{
+   list-style-type: none;
+   padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+ }
+ 

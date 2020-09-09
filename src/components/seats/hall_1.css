@@ -1,0 +1,68 @@
+
+@media only screen and (min-width:640px){
+    .hall_1, #screen1{
+        width:650px;
+        align-items:center;
+        margin:0 auto;
+    }
+    .hall_1_btn{
+        width:50px;
+        padding:3px;
+        margin-bottom: 10px;
+    }
+    .hall_1{
+        width:600px;
+        /* display:inline-block; */
+        /* float:left;
+        margin-left:30vw; */
+        display: inline-block;
+    }
+    .next_btn{
+        /* display:inline-block;
+        margin-left: 150px; */
+        /* float:left;
+        margin-left:70vw; */
+        display: inline-block;
+    }
+    .info_div{
+        /* display:flex;
+        justify-content: left;
+        margin-bottom: 150px; */
+        float:left;
+    }
+    #hall2,#hall3, #screen2, #screen3{
+        width:700px;
+    }
+    #screen1, #screen2, #screen3{
+        margin-bottom: 50px;
+    }
+    #seat_70_7,#seat_70_17,#seat_70_27,#seat_70_37,#seat_70_47,#seat_70_57,#seat_100_5,#seat_100_15,#seat_100_25,#seat_100_35,#seat_100_45,#seat_100_55,#seat_100_65,#seat_100_75,#seat_100_85{
+        margin-right: 100px;
+    }
+}
+@media only screen and (max-width:640px){
+    .hall_1, #screen1{
+        width:280px;
+        align-items:center;
+        margin:0 auto;
+    }
+    .hall_1_btn{
+        width:22px;
+        font-size: 8px;
+        padding:3px;
+        margin-bottom: 8px;
+    }
+    #hall1{
+        width:300px;
+    }
+    #hall2,#hall3, #screen2, #screen3{
+        width:330px;
+    }
+    
+    #screen1, #screen2, #screen3{
+        margin-bottom: 50px;
+    }  
+    #seat_70_7,#seat_70_17,#seat_70_27,#seat_70_37,#seat_70_47,#seat_70_57,#seat_100_5,#seat_100_15,#seat_100_25,#seat_100_35,#seat_100_45,#seat_100_55,#seat_100_65,#seat_100_75,#seat_100_85{
+        margin-right: 30px;
+    }
+}
