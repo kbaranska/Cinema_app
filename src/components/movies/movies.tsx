@@ -24,13 +24,10 @@ export default function Movies(props: MoviesProps) {
     await loadHours();
     //Dni tygodnia
     var finalTab = setOrderedWeekDays();
-    console.log(finalTab);
     setWeekDays(finalTab)
-    console.log(weekDays)
     setTempDay(finalTab[0]);
     setIsLoading(false);
     document.getElementById(finalTab[0]).style.fontSize = "30px"
-    console.log(hours)
   }
   const loadHours = async () => {
     var de = new Date;
@@ -55,7 +52,6 @@ export default function Movies(props: MoviesProps) {
     var idx = weekDays.indexOf(day);
     var nextDay = new Date();
     nextDay.setDate(new Date().getDate() + idx)
-    console.log(nextDay.toLocaleDateString())
     let promiseHours = service.GetHour4Day(nextDay.toLocaleDateString());
     let responseHours = await promiseHours;
     setHours(responseHours)
@@ -66,7 +62,6 @@ export default function Movies(props: MoviesProps) {
       setTempDay(day)
     }
     childRef.current.setCurrentDay(nextDay);
-    console.log(hours)
 
   }
   async function setDatebyCalendar(date) {
