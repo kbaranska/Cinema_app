@@ -59,10 +59,12 @@ async function getMovies() {
 app.get("/api/GetMovies", (req, res) => {
   const movies = getMovies().then(
     function (value) {
-      console.log(value);
+      // console.log(value);
       res.send(value);
     }
   )
+  // console.log(req);
+  // console.log(res.data);
 });
 
 //Pobieranie godzin przezs film/ bez filmu mozna wszystkie
@@ -94,6 +96,15 @@ async function getHallByID(hall_id) {
   })
   return hall;
 }
+//pobieranie zajetych miejsc
+async function getBookedSeats(movie_id,date,hour)
+{
+  let seats;
+  let seat2return;
+  seats=await Hour.find({movie_id:movie_id,date:date});
+  seats[0].hours_HallInfo.map(h=>h.hour===hour?seat2return=h.booked_seats:undefined);
+  return seat2return;
+}
 app.get("/api/GetHours/d/:date", (req, res) => {
   const hours = getHoursByDate(req.params.date).then(function (value) {
     // console.log(value);
@@ -108,6 +119,7 @@ app.get("/api/GetHours/m/:movie_id?", (req, res) => {
     }
   )
 });
+
 //pobieranie sali dla wybranego filmu i godziny 
 app.get("/api/GetHall/:hall_id", (req, res) => {
   const hall = getHallByID(req.params.hall_id).then(function (value) {
@@ -116,6 +128,15 @@ app.get("/api/GetHall/:hall_id", (req, res) => {
   })
 
 })
+//pobieranie zajętych miejsc
+app.get('/api/GetHour/bs',(req,res)=>{
+  //req.query.hour => params!!
+  const booked_seats=getBookedSeats(req.query.movie_id,req.query.date,req.query.hour).then(function(value){
+    res.send(value)
+  })
+})
+
+//pobieranie zajętych miejsc
 //Dodawanie Filmu do bazy 
 async function createMovie(_title, _overview, _id, _poster_path) {
   const movie = new Movie({
@@ -140,49 +161,57 @@ async function createHours(_movieid, _info, _date, _hall_ids) {
 
   const result = await hour.save()
 }
-var z = "8.09.2020"
-// createHours(577922, [{
-//   hour: '12:00',
-//   hall_id: 111,
-//   booked_seats:[]
-// }, {
-//   hour: '15:00',
-//   hall_id: 112,
-//   booked_seats:[]
-// }, {
-//   hour: '22:00',
-//   hall_id: 113,
-//   booked_seats:[]
+app.post("/api/seedDatabase", (req, res) => {
+  // const hall = getHallByID(req.params.hall_id).then(function (value) {
+  //   res.send(value);
+  //   console.log(value)
+  // })
+  var z = "16.09.2020"
+   createHours(577922, [{
+    hour: '12:00',
+    hall_id: 111,
+    booked_seats:[]
+  }, {
+    hour: '15:00',
+    hall_id: 112,
+    booked_seats:[]
+  }, {
+    hour: '22:00',
+    hall_id: 113,
+    booked_seats:[]
+  
+  }], z)
+  
+  createHours(718444, [{
+    hour: '13:00',
+    hall_id: 221,
+    booked_seats:[]
+  }, {
+    hour: '15:00',
+    hall_id: 222,
+    booked_seats:[]
+  }, {
+    hour: '22:00',
+    hall_id: 223,
+    booked_seats:[]
+  }], z)
+  
+  createHours(539885, [{
+    hour: '10:00',
+    hall_id: 331,
+    booked_seats:[]
+  }, {
+    hour: '16:00',
+    hall_id: 332,
+    booked_seats:[]
+  }, {
+    hour: '23:00',
+    hall_id: 333,
+    booked_seats:[]
+  }], z)
+  
 
-// }], z)
-
-// createHours(718444, [{
-//   hour: '13:00',
-//   hall_id: 221,
-//   booked_seats:[]
-// }, {
-//   hour: '15:00',
-//   hall_id: 222,
-//   booked_seats:[]
-// }, {
-//   hour: '22:00',
-//   hall_id: 223,
-//   booked_seats:[]
-// }], z)
-
-// createHours(539885, [{
-//   hour: '10:00',
-//   hall_id: 331,
-//   booked_seats:[]
-// }, {
-//   hour: '16:00',
-//   hall_id: 332,
-//   booked_seats:[]
-// }, {
-//   hour: '23:00',
-//   hall_id: 333,
-//   booked_seats:[]
-// }], z)
+})
 
 //Dodawanie sali do bazy 
 async function createHall(_hall_id, _hall_number) {

@@ -12,7 +12,8 @@ export default function Seats() {
     const [hallNumber, setHallNumber] = useState(0);
     const [isLoading, setIsLoading] = useState(false)
     const [movie_data, setMovieData] = useState(null);
-
+    const [bookedSeats, setBookedSeats] = useState([])
+    const [ticketAmount, setTicketAmount] = useState(localStorage.getItem('ticket_amount'))
     const load = async () => {
         setIsLoading(true)
         console.log(movie_data)
@@ -21,12 +22,15 @@ export default function Seats() {
         let promiseHall = service.GetHallByID(m_data.hall_id);
         let response = await promiseHall;
         setHall(response)
-        console.log(response)
+        let promiseBSeats = service.GetBookedSeats(m_data.movieID, m_data.chosenDay, m_data.hour);
+        let responseBS = await promiseBSeats;
+        setBookedSeats(responseBS)
+        console.log(responseBS)
         setHallNumber(parseInt(m_data.hall_id.toString().substring(0, 1)))
         setIsLoading(false)
     }
-    function hallView(){
-           return <Hall_1 available_seats={hall[0].number_of_seats} hallNumber={hallNumber} />
+    function hallView() {
+        return <Hall_1 available_seats={hall[0].number_of_seats} hallNumber={hallNumber} bookedSeats={bookedSeats} />
     }
     useEffectAsync(async () => {
 
@@ -36,5 +40,6 @@ export default function Seats() {
     return (<div>
         {isLoading ? <Spinner /> : movie_data === null ? <Spinner /> : <div><div className="info_div"> Chosen movie: {movie_data.movieTitle} <br />
             Date: {movie_data.chosenDay}<br />
-            Hour: {movie_data.hour}</div> {hallView()}</div> }    </div>)
+            Hour: {movie_data.hour} <br />
+            Tickets: {ticketAmount} </div> {hallView()}</div>}    </div>)
 }
