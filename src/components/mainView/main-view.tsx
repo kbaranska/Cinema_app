@@ -36,8 +36,8 @@ export default function MainView() {
     return (
 
         <div>
-            <h1>Hello!</h1>
-            <p>Our Movies:</p>
+            <h1>Welcome</h1>
+            <p>Our offer:</p>
 
             <div className="row">
                 {isLoading ? <Spinner /> : movies === null ? <Spinner /> : movies.map((movie, index) => {

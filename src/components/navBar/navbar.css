@@ -1,70 +1,67 @@
-body {
-  font-family: "Lato", sans-serif;
-  overflow:visible
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,200&display=swap');
+* {
+    font-family: 'Raleway', sans-serif;
+    overflow: visible
+}
+.all{
+    border-bottom: 6px dotted white;
 }
 
 @media only screen and (max-width: 640px) {
-  .menu{
-    width: 50px; 
-   float:right;
-   margin-top: 27px;
-   margin-right: 20px;
-  }
-  .sidenav{
-    background: rgb(37, 35, 35);
-    position:fixed;
-    z-index: 1;
-width:100vw;
-align-items: center;
-  }
-/* a:first-child{visibility: visible; }*/
-/* #myLinks a{visibility: hidden;}  */
-#myLinks a{display: none; text-align: center; } 
-.logo_img{width:100px;}
+    .menu {
+        width: 50px;
+        float: right;
+        margin-top: 27px;
+        margin-right: 20px;
+    }
+
+    .aLinks {
+        display: none;
+    }
+
+    .logo_img {
+        width: 100px;
+    }
 }
 
 @media only screen and (min-width: 640px) {
-  img{
-    width: 130px;
-  }
-  #myLinks a{display: block;}
-  .menu{
-    visibility: hidden;
-    display: none;
-  }
-  .sidenav {
-    width: 140px;
-    position: fixed;
-    z-index: 1;
-    top: 10px;
-    left: 5px;
-    background: rgb(37, 35, 35);
-    overflow-x: hidden;
-    padding: 8px 0;
-  
-  }
-  .sidenav2 {
-    width: 140px;
-    position: fixed;
-    z-index: 1;
-    top: 15px;
-    left: 12px;
-    background: #61dafb;
-    overflow-x: hidden;
-    padding: 8px 0;
-    height: 210px;
-  }
-  
-  .sidenav a {
-    padding: 6px 8px 6px 8px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #61dafb;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #064579;
-    text-decoration: none;
-  }
+    img {
+        width: 130px;
+    }
+
+    .wrap {
+        text-align: left;
+    }
+
+    .wrap div {
+        display: inline-block;
+    }
+
+    .img_div {
+        width: 15%
+    }
+
+    .aLinks {
+        width: 80%;
+        text-align: center;
+        font-size: 30px;
+        color:green
+    }
+
+    .aLinks a {
+        color: white;
+
+    }
+
+    .aLinks a:hover {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    .menu {
+        visibility: hidden;
+        display: none;
+    }
+
 }
