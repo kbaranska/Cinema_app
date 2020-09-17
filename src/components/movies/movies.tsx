@@ -70,7 +70,6 @@ export default function Movies(props: MoviesProps) {
     setHours(responseHours)
     setChosenDay(date.toLocaleDateString())
     document.getElementById(tempDay).style.fontSize = ""
-    // setTempDay(date)
   }
 
   useEffectAsync(async () => {
@@ -88,7 +87,7 @@ export default function Movies(props: MoviesProps) {
             <li className={"card-body  container singleCard a" + movie.id} key={movie.id}>
               <div className="row">
                 <div className="col-sm poster">
-                  <div><img className="poster_img" src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} ></img></div>
+                  <div><img className="poster_img" src={movie.poster_path} ></img></div>
                 </div>
                 <div className="col-sm overview">
                   <div className="title">{movie.title}</div>
