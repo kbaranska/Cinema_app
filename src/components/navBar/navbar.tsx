@@ -15,42 +15,49 @@ class NavBar extends Component {
       // console.log(document.getElementById(ids[1]).style.visibility)
       //  if(document.getElementById(ids[1]).style.visibility=="" || document.getElementById(ids[1]).style.visibility=="hidden"){
       const elem: HTMLElement = document.getElementById(ids[0]);
-      if (elem.style.display === "" || elem.style.display === "none") {
-
-        for (var i = 0; i < ids.length; i++) {
-          //  document.getElementById(ids[i]).style.visibility="visible"
-          document.getElementById(ids[i]).style.display = "block"
-
+      console.log(elem.style.display)
+      if (elem.style.display === "" || elem.style.display === "none") 
+        {
+          document.getElementById(ids[0]).style.display = "block"
+        } else {
+          document.getElementById(ids[0]).style.display = "none"
         }
-      }
-      else {
-        for (var i = 0; i < ids.length; i++) {
-          // document.getElementById(ids[i]).style.visibility="hidden"
-          document.getElementById(ids[i]).style.display = "none"
+        //   for (var i = 0; i < ids.length; i++) {
+        //     //  document.getElementById(ids[i]).style.visibility="visible"
+        //     document.getElementById(ids[i]).style.display = "inline-block"
 
-        }
-      }
-    }
-    return (
-      <div className="all">
-        {/* <div className="sidenav2"></div> */}
-        {/* <div className="sidenav "> */}
-        <a onClick={() => console.log("tets")} className="icon" >
-          <img className="menu" src={menu} onClick={() => collapseMenu()}></img>
-        </a>
-        <div className="wrap" >
-          <div className="img_div">
-            <img className="logo_img" src={logo} alt="" />
-          </div>
-          <div className="aLinks">
-            <a href="/" id="Aref1">MAIN </a>
+        //   }
+        // }
+        // else {
+        //   for (var i = 0; i < ids.length; i++) {
+        //     // document.getElementById(ids[i]).style.visibility="hidden"
+        //     document.getElementById(ids[i]).style.display = "none"
 
-            <a href="movies" id="Aref2">MOVIES</a>
+        //   }
+        // }
+      }
+      return (
+        <div className="all">
+          {/* <div className="sidenav2"></div> */}
+          {/* <div className="sidenav "> */}
+          <a onClick={() => collapseMenu()} className="icon" >
+            <img className="menu" src={menu} ></img>
+          </a>
+          <div className="wrap" >
+            <div className="img_div">
+              <img className="logo_img" src={logo} alt="" />
+            </div>
+            <div id="Aref1" className="aLinks">
+              <a href="/" >MAIN </a>
+
+              <a href="movies" id="Aref2">NOW PLAYING</a>
+              <a>PRICES</a>
+              <a>COMING SOON</a>
+            </div>
           </div>
         </div>
-      </div>
 
-    );
+      );
+    }
   }
-}
-export default NavBar;
+  export default NavBar;

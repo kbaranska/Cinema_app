@@ -14,7 +14,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +24,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: red;
 }
 
 @keyframes App-logo-spin {
@@ -39,7 +38,7 @@
 .main {
   font-size: 28px; 
   padding: 0px 10px;
-  color: #61dafb;
+  color: red;
 }
 @media only screen and (min-width: 640px) {
 
@@ -48,8 +47,11 @@
 }
 }
 .body {
-  background-color: black;
+  /* background-color: #628c88; */
+  background-image: url('../src/images/background1.png');
+  min-height: 100vh;
  overflow:auto; 
+ overflow-x: hidden;
 
 }
 @media only screen and (max-width: 640px) {

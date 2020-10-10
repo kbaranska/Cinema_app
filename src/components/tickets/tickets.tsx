@@ -24,7 +24,10 @@ export default function Tickets() {
         let ticketamount = 0;
         ticketList.map(t => t.quantity > 0 ? arr.push({ type: t.type, quantity: t.quantity, price: t.price, subtotal: t.subtotal }) : t)
         arr.map(a => ticketamount += a.quantity)
+        console.log(arr)
         localStorage.setItem('ticket_amount',ticketamount.toString())
+        localStorage.setItem('ticket_info',JSON.stringify(arr))
+
     }
     useEffectAsync(async () => {
         let m_data = localStorage.getItem('chosen_movie');
@@ -61,7 +64,9 @@ export default function Tickets() {
         </table>
         Total: {totalCost}€
         <br />
-        <a href="seats" ><button disabled={totalCost<=0} onClick={() => saveTicket()}>Choose seats</button></a>
+        <a href="seats" >
+            <button disabled={totalCost<=0} onClick={() => saveTicket()}>Choose seats</button>
+            </a>
     </div>
     )
 }

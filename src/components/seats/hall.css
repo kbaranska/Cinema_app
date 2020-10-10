@@ -34,7 +34,7 @@ button:focus{
         /* display:flex;
         justify-content: left;
         margin-bottom: 150px; */
-        float:left;
+        /* float:left; */
     }
     #hall2,#hall3, #screen2, #screen3{
         width:700px;

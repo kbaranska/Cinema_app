@@ -169,13 +169,14 @@ async function createHours(_movieid, _info, _date, _hall_ids) {
 
   const result = await hour.save()
 }
+
 app.post("/api/seedDatabase", (req, res) => {
   // const hall = getHallByID(req.params.hall_id).then(function (value) {
   //   res.send(value);
   //   console.log(value)
   // })
-  var z = "16.09.2020"
-   createHours(577922, [{
+  var z = "10.10.2020"
+   createHours(11111, [{
     hour: '12:00',
     hall_id: 111,
     booked_seats:[]
@@ -190,7 +191,7 @@ app.post("/api/seedDatabase", (req, res) => {
   
   }], z)
   
-  createHours(718444, [{
+  createHours(11112, [{
     hour: '13:00',
     hall_id: 221,
     booked_seats:[]
@@ -204,7 +205,7 @@ app.post("/api/seedDatabase", (req, res) => {
     booked_seats:[]
   }], z)
   
-  createHours(539885, [{
+  createHours(11113, [{
     hour: '10:00',
     hall_id: 331,
     booked_seats:[]
@@ -218,7 +219,7 @@ app.post("/api/seedDatabase", (req, res) => {
     booked_seats:[]
   }], z)
   
-
+res.send('OK');
 })
 
 //Dodawanie sali do bazy 

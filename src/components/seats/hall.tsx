@@ -69,7 +69,8 @@ export default function Hall_1(props) {
                 setShow(false)
             }, 3000)
         }
-        else {
+        else {        
+            localStorage.setItem('booked_seats', JSON.stringify(chosenSeatsArr))
             history.push('/summary')
         }
     }
@@ -81,15 +82,16 @@ export default function Hall_1(props) {
                 return <button className="hall_1_btn" onClick={() => onSeatClick(m.s_number)} style={{ backgroundColor: m.reserved ? "#cf3434" : "#1b8f2f" }} key={m.s_number} id={"seat_" + props.available_seats + "_" + m.s_number.toString()}>{m.s_number}</button>
             })}
         </div>
-
-        <button className="next_btn" onClick={() => onNextClick()}> NEXT</button>
-
+        <br/>
         <Alert show={show} variant="success">
             <p>
                 Please select the same amount of seats as the tickets
             </p>
 
         </Alert>
+        <button className="next_btn" onClick={() => onNextClick()}> NEXT</button>
+
+    
 
     </div>)
 }
